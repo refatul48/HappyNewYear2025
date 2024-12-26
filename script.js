@@ -50,19 +50,20 @@ class Firework {
   }
 }
 
+
 // Create firework explosion
 function createExplosion(x, y, intensity) {
   const particles = [];
   const colors = ["#FF5733", "#FFBD33", "#75FF33", "#33FFBD", "#3375FF", "#BD33FF"];
-  const particleCount = Math.floor(intensity / 4); // Increase particle count for larger explosions
+  const particleCount = Math.floor(intensity / 2); // Increase particle count for larger explosions
 
   for (let i = 0; i < particleCount; i++) {
     const angle = (Math.PI * 2 * i) / particleCount;
-    const speed = Math.random() * 7 + 4; // Higher speed for bigger explosion
+    const speed = Math.random() * 5 + 2; // Higher speed for bigger explosion
     const velocityX = Math.cos(angle) * speed;
     const velocityY = Math.sin(angle) * speed;
-    const size = Math.random() * 8 + 4; // Larger particle size
-    const life = Math.random() * 80 + 60; // Longer lifespan for bigger explosions
+    const size = Math.random() * 5 + 2; // Larger particle size
+    const life = Math.random() * 50 + 30; // Longer lifespan for bigger explosions
 
     const color = colors[Math.floor(Math.random() * colors.length)];
     particles.push(new Firework(x, y, color, size, velocityX, velocityY, life));
